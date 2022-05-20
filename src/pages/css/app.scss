@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans');
+*{
+    font-family: 'Nunito Sans';
+}
+$darkest:#121619;
+$darker:#2D4739;
+$primary-darker:#016438;
+$primary:#09814A;
+$primary-light:#49b685;
+$lighter:#BCB382;
+$lightest:#E5C687;
+$lightest-light:#fff4dd;
+$theme-colors: (
+  "primary": $primary,
+  "darkest": $darkest,
+  "darker":$darker,
+  "lighter":$lighter,
+  "lightest":$lightest,
+  "lightest-light": $lightest-light,
+  "primary-light":$primary-light,
+  "primary-darker":$primary-darker
+);
+
+@import "bootstrap";
+@import "anim";
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: $lighter;
+}
+.navHov{
+    transition: color 0.3s;
+}
+.navHov:hover>*{
+    :nth-child(1){
+        color: white;
+    }
+    :nth-child(2){
+        color: white;
+    }
+}
+.list-group-item{
+    transition: all 0.3s;
+}
+.list-group-item-style{
+    background-color: transparent;
+    color: black;
+}
+.list-group-item-style:hover{
+    background-color: $white;
+    :nth-child(1){
+        color: $primary;
+    }
+    :nth-child(2){
+        color: $primary;
+    }
+    
+}
+.list-group-item-style:active{
+    background-color: $lightest;
+    color: white;
+}
+.trans{
+    
+    transition: background-color 0.3s,width 0.3s;
+}
+.btn-white{
+    background-color: white;
+}
+.btn-style1:focus {
+    background-color: white;
+    outline: none;
+    box-shadow: none;
+}
+.btn-style2:hover{
+    background-color: $primary;
+    :nth-child(1){
+        color: white;
+    }
+}
+.btn-style2:active{
+    background-color: $darker;
+    
+}
+.g-primary{
+    fill: $primary;
+}
+.g-white{
+    fill: white;
+}
+.bg-img1{
+    background-image: url(/png/bg_bggenerator_com.png);
+    height:100vh;
+    width:100vw;
+    z-index:-1;
+}

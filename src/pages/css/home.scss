@@ -1,0 +1,16 @@
+@import "app";
+@import "bootstrap";
+
+.hCard{
+    transition: transform 0.3s;
+}
+.hCard:hover{
+    transform: scale(1.01,1.01);
+}
+.seeMore{
+    transition: background-color 0.3s,color 0.3s;
+}
+.seeMore:hover{
+    background-color: $lighter;
+    color: white;
+}

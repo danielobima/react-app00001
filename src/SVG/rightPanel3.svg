@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 567 1080">
+    <defs>
+        <style>.cls-1{fill:#fff;}</style>
+    </defs>
+    <title>rightPanel3</title>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_1-2" data-name="Layer 1">
+            <path class="cls-1" d="M73.15,1079.5C24.94,900.5.5,719,.5,540S24.94,179.5,73.15.5H566.5v1079Z"/>
+            <path class="cls-1" d="M566,1V1079H73.54A2138.82,2138.82,0,0,1,19.18,809.87a2012.11,2012.11,0,0,1,0-539.74A2138.82,2138.82,0,0,1,73.54,1H566m1-1H72.77q-145.55,540,0,1080H567V0Z"/>
+        </g>
+    </g>
+</svg>

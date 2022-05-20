@@ -1,0 +1,19 @@
+
+.anim{
+transition: all 1s;
+}
+.anim1{
+transform: translate(-50px);
+opacity: 0;
+}
+.anim2{
+transform: translate(50px);
+opacity: 0;
+}
+.anim3{
+opacity: 0;
+}
+.anim-def{
+    transform: translate(0);
+    opacity: 1;
+    }
