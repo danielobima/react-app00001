@@ -6,6 +6,6 @@ const Companies = ()=>{
             Companies
             
         </div>
-    </>);
+    </>); 
 };
 export default Companies;
