@@ -2,7 +2,7 @@ import faker from '@faker-js/faker';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect,useState } from 'react';
-import {  animList, scrollListener } from '../functions/anim';
+import {  animList } from '../functions/anim';
 
 const Workers = ()=>{
     const [WorkerList, setWorkerList] = useState([]);
@@ -40,7 +40,7 @@ const Workers = ()=>{
             <div className='col-sm-11  ms-sm-4'>
                 <div className='card shadow bg-lightest-light mb-5' style={{minHeight:'50vh'}}>
                     <div className='card-body'>
-                        <div className='card-header sticky-top m-0 p-0 border-0 bg-transparent' style={{top:'5px'}}>
+                        <div className='card-header sticky-top m-0 p-0 border-0 bg-transparent pt-5 pt-sm-0' style={{top:'5px'}}>
                             <div className="input-group  p-2 " >
                                 <div className="input-group-prepend shadow">
                                     <button className=" h-100 w-auto btn btn-primary " >

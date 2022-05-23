@@ -1,17 +1,11 @@
 
-import React, { useState,useRef } from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars,  faCar,  faGear,  faHouse, faIndustry, faPerson, faSignOut, faUser } from '@fortawesome/free-solid-svg-icons';
+import { faBars,  faCar,  faGear,  faHouse, faIndustry, faPerson, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import {AppSVG} from '../SVG/appSVG';
 import { scrollListener } from '../functions/anim';
-import {
-    exportComponentAsJPEG,
-    } from "react-component-export-image";
-
-
 const Layout =()=>{
-    const componentRef = useRef();
     const navHovTrue = {
         sidebar:" col-sm-2 bg-primary",
         display:'inline',
