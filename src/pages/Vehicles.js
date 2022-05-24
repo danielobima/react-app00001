@@ -100,15 +100,13 @@ const Vehicles = ()=>{
                             <tbody>
                                 {vehiclesList.map((vehicle,index)=>{
                                     
-                                    return(<tr key={vehicle.noPlate+index} id={vehicle.noPlate} className="animF anim4">
+                                    return(<tr key={vehicle.noPlate+index} id={vehicle.noPlate} className="animF anim4 ">
                                             <th scope="row">{index+=1}</th>
                                             <td>{vehicle.noPlate}</td>
                                             <td>{vehicle.make}</td>
                                             <td>{vehicle.model}</td>
                                             <td>
                                                 <button className=' h-100 w-auto btn btn-primary' onClick={()=>{
-                                                    document.getElementById(vehicle.noPlate).classList.remove('anim-def');
-                                                    document.getElementById(vehicle.noPlate).classList.add('anim5');
                                                     dispatch(removeVehicle(index));
                                                     setTimeout(()=>{
                                                         animList2();

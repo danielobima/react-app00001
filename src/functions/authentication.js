@@ -1,5 +1,6 @@
 import axios from "axios";
-const login = (email,password,Callback) =>{
+import Cookies from 'js-cookie';
+export const Login = (email,password,Callback) =>{
     
     let body = {
         "email": email,
@@ -8,7 +9,7 @@ const login = (email,password,Callback) =>{
     axios
     .post("https://reqres.in/api/login", body)
     .then(function(response) {
-        //console.log(response);
+        Cookies.set('LoggedIn','true',{ expires: 1 });
         Callback(true,"Successfully logged in.");
     })
     .catch(function(error) {
@@ -18,7 +19,13 @@ const login = (email,password,Callback) =>{
     
 }
 
-// const checkAuthentication = ()=>{
-    
-// }
-export const Login = login;
+export const authenticated = ()=>{
+    if(Cookies.get('LoggedIn') === 'true')
+        return true;
+    else
+        return false;
+}
+export const logOut = ()=>{
+    Cookies.remove('LoggedIn');
+    window.location.href = "/sign-in"
+}

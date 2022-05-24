@@ -1,10 +1,11 @@
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars,  faCar,  faGear,  faHouse, faIndustry, faPerson, faSignOut } from '@fortawesome/free-solid-svg-icons';
 import {AppSVG} from '../SVG/appSVG';
 import { scrollListener } from '../functions/anim';
+import { authenticated,logOut } from '../functions/authentication';
 const Layout =()=>{
     const navHovTrue = {
         sidebar:" col-sm-2 bg-primary",
@@ -18,6 +19,11 @@ const Layout =()=>{
         listGroup:' text-start text-sm-center',
         logoColour:'g-primary'
     }
+    useEffect(()=>{
+        if(!authenticated()){
+            window.location.href='/sign-in'
+        }
+    },[]);
     const [navHover,setNavHover] = useState(navHovFalse);
     
     const handleHover = (hoverIn) =>{
@@ -55,7 +61,7 @@ const Layout =()=>{
                     </div>
                     <div className='col-10 d-flex align-items-center justify-content-end '>
                         <button className='p-1 m-1 d-inline rounded-circle btn btn-white btn-style2'><FontAwesomeIcon icon={faGear} className="mx-1 text-primary fa-lg"/></button>
-                        <button className='p-1 d-inline rounded-circle btn btn-white btn-style2'><FontAwesomeIcon icon={faSignOut} className="mx-1 text-primary fa-lg"/></button>
+                        <button className='p-1 d-inline rounded-circle btn btn-white btn-style2' onClick={logOut}><FontAwesomeIcon icon={faSignOut} className="mx-1 text-primary fa-lg"/></button>
                         <button className=" navbar-toggler btn btn-white btn-style1 " type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" >
                             <FontAwesomeIcon icon={faBars} className="mx-1 text-primary"/>
                         </button>
@@ -97,8 +103,13 @@ const Layout =()=>{
                 <div className='col-sm-10 '> 
                     <div className='row sticky-top d-none d-sm-flex'>
                        <div className='col-12 text-end align-self-center py-2 '>
-                            <button className='p-1 m-1 d-inline rounded-circle shadow-sm btn  btn-style2 text-center cbtn' style={{width:'50px',height:'50px'}}><FontAwesomeIcon icon={faGear} className="mx-1 text-primary fa-lg"/></button>
-                            <button className='p-1 d-inline rounded-circle btn shadow-sm  btn-style2 text-center cbtn' style={{width:'50px',height:'50px'}}><FontAwesomeIcon icon={faSignOut} className="mx-1 text-primary fa-lg"/></button>
+                            <button className='p-1 m-1 d-inline rounded-circle shadow-sm btn  btn-style2 text-center cbtn' id="dropdownMenuButton1" data-bs-toggle="dropdown" style={{width:'50px',height:'50px'}}><FontAwesomeIcon icon={faGear} className="mx-1 text-primary fa-lg"/></button>
+                            <ul class="dropdown-menu fade " aria-labelledby="dropdownMenuButton1">
+                                <li><a class="dropdown-item" href="/">setting 1</a></li>
+                                <li><a class="dropdown-item" href="/">setting 2</a></li>
+                                <li><a class="dropdown-item" href="/">setting 3</a></li>
+                            </ul>
+                            <button className='p-1 d-inline rounded-circle btn shadow-sm  btn-style2 text-center cbtn' style={{width:'50px',height:'50px'}} onClick={logOut}><FontAwesomeIcon icon={faSignOut} className="mx-1 text-primary fa-lg"/></button>
                        </div>
                     </div>
                     <Outlet />

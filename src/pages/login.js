@@ -1,12 +1,11 @@
 
 import React, { useEffect,useState } from 'react';
-import { Login } from '../functions/authentication';
-import Modal from 'react-modal';
+import { authenticated, Login } from '../functions/authentication';
 import './css/login.scss';
 import { anim } from '../functions/anim';
+import { $ }  from 'react-jquery-plugin'
 
 
-Modal.setAppElement('#root');
 const SignInForm = () =>{
 
   const [emailVal,setEmail] = useState("");
@@ -14,10 +13,16 @@ const SignInForm = () =>{
   const [invalidEmail,inValidEmail] = useState(false);
   const [invalidPassword,inValidPassword] = useState(false);
   const [response,setResponse]=useState("");
-  const [modalIsOpen,setModalIsOpen] = useState(false);
   const [emailDivClass,setEmailDivClass] = useState("inputDiv");
   const [passwordDivClass,setPasswordDivClass] = useState("inputDiv");
 
+  const openAlert = ()=>{
+    $('#logged_in').modal('show');
+    $('#logged_in').on('hidden.bs.modal', function (e) {
+      window.location.href = '/';
+    })
+  }
+  
   const login = () =>{
     Login(emailVal,passwordVal,callBack);
   };
@@ -28,13 +33,12 @@ const SignInForm = () =>{
     }
     else{
       setResponse(responseMessage);
-      setModalIsOpen(true);
+      openModal();
     }
     
   }
-
-  const closeModal = ()=>{
-    setModalIsOpen(false);
+  const openModal = ()=>{
+    $('#exampleModal').modal('show');
   }
 
   const handleEmail = (event) =>{
@@ -54,7 +58,11 @@ const SignInForm = () =>{
   }
   useEffect(()=>{
     anim();
-    
+    if(authenticated()){
+      console.log("yes")
+      openAlert();
+      
+    }
   },[]);
   
   return(<div className="signInDiv">
@@ -79,10 +87,29 @@ const SignInForm = () =>{
       <button  onClick={login} type="button" className="btn btn-primary ripple ">Sign in</button>
 
     </div>
-    <Modal id='modal' style={ModalStyle} isOpen = {modalIsOpen}  >
-      <p style={{paddingTop:"14vh",fontSize:"30px",fontFamily:'sans-serif',fontWeight:400}}>{response}</p>
-      <button onClick={closeModal}>Close</button>
-    </Modal>
+    
+    <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog">
+          <div className="modal-content">
+          <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">{response}</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          
+          </div>
+      </div>
+    </div>
+    <div className="modal fade" id="logged_in" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div className="modal-dialog">
+          <div className="modal-content">
+          <div className="modal-header">
+              <h5 className="modal-title" id="exampleModalLabel">Your already logged in</h5>
+              <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" ></button>
+          </div>
+          
+          </div>
+      </div>
+    </div>
   </div>);
 }
 
@@ -104,33 +131,8 @@ function LoginPage() {
         
       </div>
     </div>
+    
   </>);
 }
-
-const ModalStyle = {
-  overlay: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    backgroundColor: 'rgba(255, 255, 255, 0.75)',
-    animationName: 'fade-in',
-    animationDuration: '0.125s',
-    animationTimingFunction: 'ease-in-out',
-  },
-  content: {
-    
-    padding:'20px',
-    height:'40vh',
-    width: '40vw',
-    textAlign:'center',
-    margin:'auto',
-    animationName: 'fade-in',
-    animationDuration: '0.125s',
-    animationTimingFunction: 'ease-in-out',
-  }
-
-};
 
 export default LoginPage;
