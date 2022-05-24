@@ -18,6 +18,10 @@ export const Login = (email,password,Callback) =>{
     });
     
 }
+const creds = {
+    "email": "eve.holt@reqres.in",
+    "password": "cityslicka"
+};
 
 export const authenticated = ()=>{
     if(Cookies.get('LoggedIn') === 'true')

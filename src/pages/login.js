@@ -120,8 +120,8 @@ function LoginPage() {
       <div className=" row backGround">
       <div className='leftPanel col-sm-8'>
           <div className='anim anim2'>
-            <p >Lorem ipsum </p>
-            <span>dolor sit amet</span>
+            <p >Little Audit Docs </p>
+            <span>and Services</span>
           </div>
         </div>
         <div className="signInPanel col-sm-4">

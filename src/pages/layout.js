@@ -79,19 +79,19 @@ const Layout =()=>{
                         </div>
                         <div className={"list-group list-group-flush align-self-center w-100 navHov"+navHover.listGroup}>
                             <Link to="/" onMouseEnter={()=>handleHover(true)} onMouseLeave={()=>handleHover(false)} 
-                            className="list-group-item  list-group-item-style py-2 ripple" >
-                                <FontAwesomeIcon icon={faHouse} className="mx-1 text-primary"/> <span style={{display:navHover.display}}>Home</span>
+                            className="list-group-item  list-group-item-style py-2 " >
+                                <FontAwesomeIcon icon={faHouse} className="mx-1 text-primary"/> <span style={{display:navHover.display}} >Home</span>
                             </Link>
                             <Link to="/workers" onMouseEnter={()=>handleHover(true)} onMouseLeave={()=>handleHover(false)} 
-                            className="list-group-item  list-group-item-style py-2 ripple" >
+                            className="list-group-item  list-group-item-style py-2 " >
                                 <FontAwesomeIcon icon={faPerson} className="mx-1 text-primary"/> <span  style={{display:navHover.display}}>Workers</span>
                             </Link>
                             <Link to="/companies" onMouseEnter={()=>handleHover(true)} onMouseLeave={()=>handleHover(false)} 
-                            className="list-group-item  list-group-item-style py-2 ripple" >
+                            className="list-group-item  list-group-item-style py-2 " >
                                 <FontAwesomeIcon icon={faIndustry} className="mx-1 text-primary"/> <span  style={{display:navHover.display}}>Companies</span>
                             </Link>
                             <Link to="/vehicles" onMouseEnter={()=>handleHover(true)} onMouseLeave={()=>handleHover(false)} 
-                            className="list-group-item  list-group-item-style py-2 ripple" >
+                            className="list-group-item  list-group-item-style py-2 " >
                                 <FontAwesomeIcon icon={faCar} className="mx-1 text-primary"/> <span  style={{display:navHover.display}}>Vehicles</span>
                             </Link>
                         
