@@ -38,7 +38,7 @@ const Companies = ()=>{
                 </h1>
             </div>
             <div className='col-sm-11  ms-sm-4'>
-                <div className='card shadow bg-lightest-light mb-5' style={{minHeight:'50vh'}}>
+                <div className='card shadow bg-lightest-light mb-5 overflow-auto' style={{height:'70vh'}}>
                     <div className='card-body'>
                         <div className='card-header sticky-top m-0 p-0 border-0 bg-transparent pt-5 pt-sm-0' style={{top:'5px'}}>
                             <div className="input-group  p-2 " >

@@ -2,6 +2,9 @@
 .anim{
 transition: all 1s;
 }
+.animF{
+    transition: all 0.5s;
+}
 .anim1{
 transform: translate(-50px);
 opacity: 0;
@@ -13,7 +16,19 @@ opacity: 0;
 .anim3{
 opacity: 0;
 }
+.anim4{
+    transform: translate(0px,50px);
+    opacity: 0;
+}
+.anim5{
+    height: 0;
+    opacity: 0;
+    color: red;
+}
 .anim-def{
     transform: translate(0);
     opacity: 1;
-    }
+}
+.transH{
+    transition: height 0.3s;
+}

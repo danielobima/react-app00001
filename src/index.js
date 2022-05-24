@@ -12,22 +12,30 @@ import Vehicles from './pages/Vehicles';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './pages/css/app.scss';
+import store from './store'
+import { Provider } from 'react-redux'
+
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+
 root.render(
-   <BrowserRouter>
-   <Routes>
-     <Route path="/sign-in" element={<LoginPage/>}/>
-     <Route path="/" element={<Layout />}>
-       <Route index element={<Home />} />
-       <Route path="/workers" element={<Workers />} />
-       <Route path="/companies" element={<Companies />} />
-       <Route path="/vehicles" element={<Vehicles />} />
-     </Route>
-   </Routes>
- </BrowserRouter>
+  <Provider store={store}>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/sign-in" element={<LoginPage/>}/>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Home />} />
+          <Route path="/workers" element={<Workers />} />
+          <Route path="/companies" element={<Companies />} />
+          <Route path="/vehicles" element={<Vehicles />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+  </Provider>
 );
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
