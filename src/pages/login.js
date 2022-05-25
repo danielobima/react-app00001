@@ -15,6 +15,7 @@ const SignInForm = () =>{
   const [response,setResponse]=useState("");
   const [emailDivClass,setEmailDivClass] = useState("inputDiv");
   const [passwordDivClass,setPasswordDivClass] = useState("inputDiv");
+  const [showSpinner,setShowSpinner] = useState(false);
 
   const openAlert = ()=>{
     $('#logged_in').modal('show');
@@ -25,9 +26,11 @@ const SignInForm = () =>{
   
   const login = () =>{
     Login(emailVal,passwordVal,callBack);
+    setShowSpinner(true);
   };
 
   const callBack = (success,responseMessage) =>{
+    setShowSpinner(false);
     if(success){
       window.location.href = "/";
     }
@@ -84,7 +87,13 @@ const SignInForm = () =>{
         </div>
       </div>
       
-      <button  onClick={login} type="button" className="btn btn-primary ripple ">Sign in</button>
+      <button  onClick={login} type="button" className="btn btn-primary ripple ">
+        {showSpinner && 
+        <div class="spinner-border spinner-border-sm text-white me-2" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>}
+        Sign in
+      </button>
 
     </div>
     
